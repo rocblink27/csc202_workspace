@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.2
+//         VERSION:  0.3
 //
 //       FILE NAME:  uart.c
 //
@@ -105,7 +105,7 @@ void UART_init(uint32_t baud_rate)
 
   // Configure UART0 but do not enable it yet
   UART0->CTL0 = UART_CTL0_FEN_ENABLE | UART_CTL0_HSE_OVS16 | 
-                UART_CTL0_CTSEN_DISABLE | UART_CTL0_CTSEN_ENABLE | 
+                UART_CTL0_CTSEN_DISABLE | 
                 UART_CTL0_RTS_CLR | UART_CTL0_MODE_UART | 
                 UART_CTL0_TXE_ENABLE| UART_CTL0_RXE_ENABLE | 
                 UART_CTL0_LBE_DISABLE | UART_CTL0_ENABLE_DISABLE;
