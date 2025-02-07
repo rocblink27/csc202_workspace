@@ -7,8 +7,6 @@ Welcome to the CSC-202: Programming Embedded Microcontrollers in C and Assembly 
 
 By utilizing this workspace, you will be able to begin your journey of programming embedded microcontrollers with the support of a structured environment tailored to your course's needs.
 
-
-
 ### Hardware
 The hardware used in these projects includes:
 
@@ -26,7 +24,6 @@ The command used to connect repo to GitHub:
 - `git push -u origin master`
 
 **NOTE:** Do not create any file in GitHub because this will create the branch called `main`. Then, if you push, you will have two branches.
-
 
 <br></br>
 ## Configuring CCS-Theia to push to GitHub (for another machine)
