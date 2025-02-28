@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.4
+//         VERSION:  0.5
 //
 //       FILE NAME:  LaunchPad.h
 //
@@ -141,6 +141,7 @@
 #define LED7_IOMUX                                               (IOMUX_PINCM39)
 
 // Defines for Enables for LEDs and Seg7
+#define MAX_NUM_SEG7_DISPLAYS                                                (4)
 #define SEG7_DIG0_ENABLE_IDX                                                 (0)
 #define SEG7_DIG1_ENABLE_IDX                                                 (1)
 #define SEG7_DIG2_ENABLE_IDX                                                 (2)
