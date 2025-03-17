@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.5
+//         VERSION:  0.6
 //
 //       FILE NAME:  LaunchPad.h
 //
