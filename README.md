@@ -78,6 +78,7 @@ This will download the latest version of the repository from GitHub to your loca
 ---
 ## Contact Information
 Bruce Link  
+Monroe Community College  
 Information & Computer Technologies Department  
 blink@monroecc.edu
 
