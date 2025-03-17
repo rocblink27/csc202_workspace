@@ -257,9 +257,9 @@ void lp_leds_init(void);
 void lp_leds_on(uint8_t index);
 void lp_leds_off(uint8_t index);
 
-void led_init(void);
-void led_enable(void);
-void led_disable(void);
+void leds_init(void);
+void leds_enable(void);
+void leds_disable(void);
 void leds_off(void);
 void leds_on(uint32_t value);
 void led_on(uint8_t led_idx);
