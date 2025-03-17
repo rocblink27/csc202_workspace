@@ -262,16 +262,16 @@ float thermistor_calc_temperature(int raw_ADC)
   // ADC (2^# of ADC Bit Value)
   #define ADC_BITS                                                        (4096)     
   
-  // set the VBIAS voltage
+  //Set the VBIAS voltage
   #define BIAS_VOLTGAGE                                            (float)(3.30) 
 
-  // set up the variable for the measured voltage
+  //Set up the variable for the measured voltage
   float voltage_temp = 0;
   
   // setup the variable for the calculated temperature
   float celsius_temp = 0;
 
-  // calculate volts per bit then multiply that times the ADV value
+  //Calculate volts per bit, then multiply that by the ADV value
   voltage_temp = (BIAS_VOLTGAGE / ADC_BITS) * raw_ADC;  
 
   // 4th order regression to get temperature
