@@ -13,10 +13,11 @@ The hardware used in these projects includes:
 - MSPM0G3507 LaunchPad (LP-MSPM0G3507)
 - CSC202 Expansion Board
 - LCD1602 Module
-- 4x4 Matrixc keypad
+- 4x4 Matrix keypad
+
 
 ## Configuring CCS-Theia and GitHub
-
+---
 To fully integrate CCS-Theia with Git and GitHub, you will push your local repository from your machine to GitHub. Below are the instructions to push and pull files to/from GitHub.
 
 ### Configure Git Global Configurations
