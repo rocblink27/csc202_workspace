@@ -91,7 +91,7 @@ typedef struct
 } i2c_struct;
 
 
-// Define the configuration data for the leds on the LP-MSPM0G3507
+// Define the configuration data for the LEDs on the LP-MSPM0G3507
 const gpio_struct lp_led_config_data[] = {
         {LP_LED_RED_PORT, LP_LED_RED_MASK, LP_LED_RED_IOMUX, ACTIVE_LOW},
         {LP_RGB_RED_PORT, LP_RGB_RED_MASK, LP_RGB_RED_IOMUX, ACTIVE_HIGH},
@@ -99,7 +99,7 @@ const gpio_struct lp_led_config_data[] = {
         {LP_RGB_BLU_PORT, LP_RGB_BLU_MASK, LP_RGB_BLU_IOMUX, ACTIVE_HIGH}
 };
 
-// Define the configuration data for the leds on the CSC202 Board
+// Define the configuration data for the LEDs on the CSC202 Board
 const gpio_struct led_config_data[] = {
         {LED0_PORT, LED0_MASK, LED0_IOMUX, ACTIVE_LOW},
         {LED1_PORT, LED1_MASK, LED1_IOMUX, ACTIVE_LOW},
@@ -387,7 +387,7 @@ void lp_leds_off(uint8_t index)
 // RETURN:
 //    none
 // -----------------------------------------------------------------------------
-void led_init(void)
+void leds_init(void)
 {
   uint32_t gpio_pincm = IOMUX_PINCM_PC_CONNECTED | PINCM_GPIO_PIN_FUNC;
 
@@ -407,14 +407,14 @@ void led_init(void)
     } /* else */
   }  /* for */
 
-  // configure the LED board enable signals
+  //Configure the LED board enable signals
   IOMUX->SECCFG.PINCM[enable_controls[LED_BAR_ENABLE_IDX].pin_cm] = gpio_pincm;
   GPIOA->DOE31_0 |= enable_controls[LED_BAR_ENABLE_IDX].bit_mask;
 
   // Ensure all the LEDs are off
   leds_off();
 
-} /* led_init */
+} /* leds_init */
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
@@ -440,8 +440,8 @@ void led_enable(void)
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
 //    This function de-asserts the enable signal, which is active high, to the 
-//    LED Bar. When the LED bar is de-asserts, the LED can will not illuminate 
-//    based on the value when to them. Any value displayed to the LED Bar 
+//    LED Bar. When the LED bar is de-asserts, the LED can not illuminate 
+//    based on the value when to them. Any value displayed on the LED Bar 
 //    remains unchanged.
 //
 // INPUT PARAMETERS:
@@ -975,14 +975,14 @@ void lpsw_init(void)
 //    LaunchPad Board and returns TRUE if the button is down.
 //
 // INPUT PARAMETERS:
-//    sw_idx - an 8-bit value that represent the pushbutton index
+//    sw_idx - an 8-bit value that represents the pushbutton index
 //
 // OUTPUT PARAMETERS:
 //    none
 //
 // RETURN:
-//    0 if pushbutton is up
-//    1 if pushbutton is down
+//    0 if the pushbutton is up
+//    1 if the pushbutton is down
 // -----------------------------------------------------------------------------
 bool is_lpsw_down(uint8_t sw_idx)
 {
@@ -1017,14 +1017,14 @@ bool is_lpsw_down(uint8_t sw_idx)
 //    LaunchPad Board and returns TRUE if the button is up.
 //
 // INPUT PARAMETERS:
-//    sw_idx - an 8-bit value that represent the pushbutton index
+//    sw_idx - an 8-bit value that represents the pushbutton index
 //
 // OUTPUT PARAMETERS:
 //    none
 //
 // RETURN:
-//    0 if pushbutton is down
-//    1 if pushbutton is up
+//    0 if the pushbutton is down
+//    1 if the pushbutton is up
 // -----------------------------------------------------------------------------
 bool is_lpsw_up(uint8_t sw_idx)
 {
@@ -1042,7 +1042,7 @@ bool is_lpsw_up(uint8_t sw_idx)
                   lp_switch_config_data[sw_idx].bit_mask);
   } /* else */
 
-  // Assumes 1 is returned when switch pressed - regardless of switch polarity
+  // Assumes 1 is returned when the switch pressed - regardless of switch polarity
   if (sw_value != 0x1)
   {
     sw_status = true;
@@ -1135,14 +1135,14 @@ uint8_t dipsw_read(void)
 //    Expansion Board and returns TRUE if the button is down.
 //
 // INPUT PARAMETERS:
-//    pb_idx - an 8-bit value that represent the pushbutton index
+//    pb_idx - an 8-bit value that represents the pushbutton index
 //
 // OUTPUT PARAMETERS:
 //    none
 //
 // RETURN:
-//    0 if pushbutton is up
-//    1 if pushbutton is down
+//    0 if the pushbutton is up
+//    1 if the pushbutton is down
 // -----------------------------------------------------------------------------
 bool is_pb_down(uint8_t pb_idx)
 {
@@ -1160,7 +1160,7 @@ bool is_pb_down(uint8_t pb_idx)
                   dip_switch_config_data[pb_idx].bit_mask);
   } /* else */
 
-  // IOMUX has inversion enabled so used !polarity
+  // IOMUX has inversion enabled, so used !polarity
   if (pb_value != dip_switch_config_data[pb_idx].polarity)
   {
     pb_status = true;
@@ -1177,14 +1177,14 @@ bool is_pb_down(uint8_t pb_idx)
 //    Expansion Board and returns TRUE if the button is up.
 //
 // INPUT PARAMETERS:
-//    pb_idx - an 8-bit value that represent the pushbutton index
+//    pb_idx - an 8-bit value that represents the pushbutton index
 //
 // OUTPUT PARAMETERS:
 //    none
 //
 // RETURN:
-//    0 if pushbutton is down
-//    1 if pushbutton is up
+//    0 if the pushbutton is down
+//    1 if the pushbutton is up
 // -----------------------------------------------------------------------------
 bool is_pb_up(uint8_t pb_idx)
 {
@@ -1202,7 +1202,7 @@ bool is_pb_up(uint8_t pb_idx)
                   dip_switch_config_data[pb_idx].bit_mask);
   } /* else */
 
-  // IOMUX has inversion enabled so used polarity
+  // IOMUX has inversion enabled, so used polarity
   if (pb_value == dip_switch_config_data[pb_idx].polarity)
   {
     pb_status = true;
@@ -1217,7 +1217,7 @@ bool is_pb_up(uint8_t pb_idx)
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
 //    This function enables the GPIO filter for the switches. The filter is 
-//    enabled for a 8 clock cycle filter meaning that any noise (glitches) 
+//    enabled for an 8 clock cycle filter, meaning that any noise (glitches) 
 //    that last less than 8 clocks is filtered out.
 //
 // INPUT PARAMETERS:
@@ -1373,7 +1373,8 @@ uint8_t read_keyrow_data(void)
 // INPUT PARAMETERS:
 //    data - A byte value where each bit corresponds to the state of a
 //           column in the keypad matrix. A bit value of 1 drives the
-//           corresponding column high, and a bit value of 0 drives it low.
+//           corresponding column is high, and a bit value of 0 drives 
+//           it low.
 //
 // OUTPUT PARAMETERS:
 //    none
@@ -1441,7 +1442,7 @@ uint8_t keypad_scan(void)
       write_keycol_data(keycodes[key]);
       data = read_keyrow_data();
 
-      // extract upper nibble and shift to lower mibble before comparing 
+      // Extract upper nibble and shift to lower nibble before comparing 
       if (data == (keycodes[key] & 0xF0) >> 4)
       {
           found = true;
@@ -1458,7 +1459,7 @@ uint8_t keypad_scan(void)
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
-//    This function wait here for a key to be pressed on the keypad matrix. 
+//    This function waits here for a key to be pressed on the keypad matrix. 
 //    The function only returns when a valid key is pressed.
 //
 // INPUT PARAMETERS:
@@ -1486,7 +1487,7 @@ uint8_t getkey_pressed(void)
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
-//    This function wait here until no key on the keypad matrix is pressed.
+//    This function waits here until no key on the keypad matrix is pressed.
 //    The function only returns when a no valid key is pressed.
 //
 // INPUT PARAMETERS:
@@ -1560,7 +1561,7 @@ void I2C_init(void)
   // time for I2C to power up
   clock_delay(PERIPHERAL_PWR_UP_DELAY);
 
-  // Selects BUSCLK as clock source for IIC
+  // Selects BUSCLK as the clock source for IIC
   I2C_INST->CLKSEL = I2C_CLKSEL_BUSCLK_SEL_ENABLE;
 
   // Selects divide ratio of module clock
@@ -1579,7 +1580,7 @@ void I2C_init(void)
   // Setup IIC configuration options
   I2C_INST->MASTER.MCR = I2C_MCR_CLKSTRETCH_ENABLE;
 
-  // Disable using interrupts, FIFO triggers not used
+  // Disable using interrupts; FIFO triggers not used
   I2C_INST->MASTER.MFIFOCTL = 0;
 
   // Configuration done, enable IIC
@@ -1776,7 +1777,7 @@ void motor0_pwm_init(uint32_t load_value, uint32_t compare_value)
 
   TIMA0->CLKDIV = GPTIMER_CLKDIV_RATIO_DIV_BY_8;
 
-  // set the pre-scale count value that divides select clock by PCNT+1
+  //Set the pre-scale count value that divides selected clock by PCNT+1
   // TimerClock = BusCock / (DIVIDER * (PRESCALER))
   // 200,000 Hz = 40,000,000 Hz / (8 * (24 + 1))
   TIMA0->COMMONREGS.CPS = GPTIMER_CPS_PCNT_MASK & 0x18;
@@ -1788,10 +1789,10 @@ void motor0_pwm_init(uint32_t load_value, uint32_t compare_value)
         GPTIMER_CCACT_23_CUACT_CCP_LOW | GPTIMER_CCACT_23_CDACT_DISABLED | 
         GPTIMER_CCACT_23_LACT_DISABLED | GPTIMER_CCACT_23_ZACT_CCP_HIGH);
 
-  // set timer reload value
+  //Set timer reload value
   TIMA0->COUNTERREGS.LOAD = GPTIMER_LOAD_LD_MASK & (load_value - 1);
 
-  // set timer compare value
+  // Set timer compare value
   TIMA0->COUNTERREGS.CC_23[1] = GPTIMER_CC_23_CCVAL_MASK & compare_value;
 
   // set compare control for PWM func with output initially low
