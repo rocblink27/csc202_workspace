@@ -14,7 +14,7 @@
 //    These functions provide support for clock initialization, delay 
 //    generation, and SysTick timer setup.
 //
-//    This code is based the the following Texas Instruments' LaunchPad 
+//    This code is based on the following Texas Instruments' LaunchPad 
 //    project templates for the LP-MSPM0G3507:
 //      - sysctl_hfxt_run_LP_MSPM0G3507_nortos_ticlang
 //      - systick_periodic_timer_LP_MSPM0G3507_nortos_ticlang
@@ -36,7 +36,7 @@
 //    and adapt the code for your specific application and hardware requirements.
 //
 // Copyright (c) 2024 by TBD
-//    You may use, edit, run or distribute this file as long as the above
+//    You may use, edit, run, or distribute this file as long as the above
 //    copyright notice remains
 // *****************************************************************************
 //******************************************************************************
@@ -54,13 +54,13 @@
 
 
 //-----------------------------------------------------------------------------
-// global signal to track status of bus clock
+// global signal to track the status of the bus clock
 //-----------------------------------------------------------------------------
 uint32_t volatile g_bus_clock_freq = 32000000; 
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
-//   This function returns current configured bus clock frequency for the 
+//   This function returns the current configured bus clock frequency for the 
 //   Launchpad development board
 //
 // INPUT PARAMETERS:
@@ -79,7 +79,7 @@ uint32_t get_bus_clock_freq(void)
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
-//    This function initializes the system clock on for the LP-MSPM03507 
+//    This function initializes the system clock for the LP-MSPM03507 
 //    LaunchPad to achieve a target frequency of 40 MHz by configuring 
 //    various clock sources, dividers, and control registers. 
 //
@@ -120,14 +120,14 @@ void clock_init_40mhz(void)
   SYSCTL->SOCLOCK.HFCLKCLKCFG &= ~SYSCTL_HFCLKCLKCFG_HFXTTIME_MASK;
   SYSCTL->SOCLOCK.HFCLKCLKCFG |=  0x00000000A;
 
-  // Set HFXTEN to enable the high frequency crystal oscillator
+  // Set HFXTEN to enable the high-frequency crystal oscillator
   SYSCTL->SOCLOCK.HSCLKEN |= SYSCTL_HSCLKEN_HFXTEN_ENABLE;
 
   // Set HFCLKFLTCHK to enable the HFCLK startup monitor
   SYSCTL->SOCLOCK.HFCLKCLKCFG |= SYSCTL_HFCLKCLKCFG_HFCLKFLTCHK_ENABLE;
 
   // Wait until HSCLKGOOD is set to indict HFCLK
-  // started correctly. NOTE Possible infinite loop if fails
+  // started correctly. NOTE: Possible infinite loop if fails
   while ((SYSCTL->SOCLOCK.CLKSTATUS & SYSCTL_CLKSTATUS_HFCLKGOOD_MASK) != 
           SYSCTL_CLKSTATUS_HFCLKGOOD_TRUE);
 
@@ -135,18 +135,18 @@ void clock_init_40mhz(void)
   SYSCTL->SOCLOCK.HSCLKCFG = SYSCTL_HSCLKCFG_HSCLKSEL_HFCLKCLK;
 
   // Wait here until HSCLKGOOD is set to indict HSCLK
-  // started correctly. NOTE Possible infinite loop if fails
+  // started correctly. NOTE: Possible infinite loop if fails
   while ((SYSCTL->SOCLOCK.CLKSTATUS & SYSCTL_CLKSTATUS_HSCLKGOOD_MASK) != 
           SYSCTL_CLKSTATUS_HSCLKGOOD_TRUE);
 
-  // Configrue USEHSCLK, together with USELFCLK, to sets the MCLK source policy.
+  //Configure USEHSCLK, together with USELFCLK, to set the MCLK source policy.
   // Set USEHSCLK to use HSCLK (HFCLK or SYSPLL) as the MCLK source in 
   // RUN and SLEEP modes.
   SYSCTL->SOCLOCK.MCLKCFG &= ~SYSCTL_MCLKCFG_USEHSCLK_MASK;
   SYSCTL->SOCLOCK.MCLKCFG |=  SYSCTL_MCLKCFG_USEHSCLK_ENABLE;
 
   // Wait until HSCLKMUX is set to indict MCLK is currently sourced from the 
-  // highspeed clock (HSCLK). NOTE Possible infinite loop if fails
+  // highspeed clock (HSCLK). NOTE: Possible infinite loop if fails
   while ((SYSCTL->SOCLOCK.CLKSTATUS & SYSCTL_CLKSTATUS_HSCLKMUX_MASK) != 
           SYSCTL_CLKSTATUS_HSCLKMUX_HSCLK);
 
@@ -189,8 +189,8 @@ void clock_init_40mhz(void)
   SYSCTL->SOCLOCK.BORTHRESHOLD = SYSCTL_BORTHRESHOLD_LEVEL_BORMIN;
 
   // Wait here until all clock status (HSCLKGOOD, LFOSCGOOD, and HFCLKGOOD)
-  // are set by hardware to indict HSCLK, LFOSC, and SYSPLL are OK and ready
-  // NOTE Possible infinite loop if fails
+  // are set by hardware to indicate HSCLK, LFOSC, and SYSPLL are OK and ready
+  // NOTE: Possible infinite loop if fails
   while ((SYSCTL->SOCLOCK.CLKSTATUS & (SYSCTL_CLKSTATUS_HSCLKGOOD_MASK | 
           SYSCTL_CLKSTATUS_LFOSCGOOD_MASK | SYSCTL_CLKSTATUS_HFCLKGOOD_MASK)) !=
           (SYSCTL_CLKSTATUS_HSCLKGOOD_TRUE | SYSCTL_CLKSTATUS_LFOSCGOOD_TRUE | 
@@ -240,7 +240,7 @@ void clock_delay(uint32_t cycles)
       __asm(".syntax unified");
   #endif
 
-  // There will be a 2 cycle delay here to fetch & decode instructions
+  // There will be a 2-cycle delay here to fetch & decode instructions
   // if branch and linking to this function
 
   //Subtract 2 net cycles for constant offset: +2 cycles for entry jump,
@@ -297,14 +297,15 @@ void msec_delay(uint32_t ms_delay_count)
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
 //    Initializes the SysTick timer with a specified period for periodic 
-//    interrupts or delays. Configures SysTick to use the core clock, sets 
-//    the reload value, and enables the timer and its interrupt. Set up 
-//    the SysTick interrupt priority and ensure the timer is disabled during 
-//    configuration.
+//    interrupts or delays. The specified period is a 24-bit value defined in
+//    the number of clock cycles for the SysTick interrupt. Configures SysTick
+//    to use the core clock, sets the reload value, and enables the timer and 
+//    its interrupt. Set up the SysTick interrupt priority and ensure the
+//    timer is disabled during configuration.
 //
 // INPUT PARAMETERS:
-//   period - a 32-bit value that represents the number clock cycles for
-//            SysTick interrupts, period must be > 0.
+//   period - a 24-bit value that represents the number clock cycles for
+//            SysTick interrupts, the period must be > 0.
 //
 // OUTPUT PARAMETERS:
 //   none
@@ -317,7 +318,7 @@ void sys_tick_init(uint32_t period)
   // Ensure SysTick is disabled
   sys_tick_disable();
 
-  // Clear and set priority of SysTick interrupt 
+  // Clear and set the priority of SysTick interrupt 
   SCB->SHP[1] &= ~(0xC0000000) | (1 << 30);
 
   // Reconfigure the SysTick
