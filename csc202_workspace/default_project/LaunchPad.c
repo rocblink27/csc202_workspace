@@ -407,7 +407,7 @@ void leds_init(void)
     } /* else */
   }  /* for */
 
-  //Configure the LED board enable signals
+  //Configure the enable signal to the LED Bar graph
   IOMUX->SECCFG.PINCM[enable_controls[LED_BAR_ENABLE_IDX].pin_cm] = gpio_pincm;
   GPIOA->DOE31_0 |= enable_controls[LED_BAR_ENABLE_IDX].bit_mask;
 
@@ -419,8 +419,8 @@ void leds_init(void)
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
 //    This function asserts the enable signal, which is active high, to the 
-//    LED Bar. When the LED bar is enabled, the LED can will illuminate 
-//    based on the value when to them. LED Bar will display whatever value
+//    LED Bar. When the LED bar is enabled, the LED can be illuminated 
+//    based on the value written to them. LED Bar will display whatever value
 //    that was previously written to it.
 //
 // INPUT PARAMETERS:
@@ -432,16 +432,16 @@ void leds_init(void)
 // RETURN:
 //    none
 // -----------------------------------------------------------------------------
-void led_enable(void)
+void leds_enable(void)
 {
   GPIOA->DOUT31_0 |= enable_controls[LED_BAR_ENABLE_IDX].bit_mask;
-} /* led_enable */
+} /* leds_enable */
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
 //    This function de-asserts the enable signal, which is active high, to the 
 //    LED Bar. When the LED bar is de-asserts, the LED can not illuminate 
-//    based on the value when to them. Any value displayed on the LED Bar 
+//    based on the value written to them. Any value displayed on the LED Bar 
 //    remains unchanged.
 //
 // INPUT PARAMETERS:
@@ -453,10 +453,10 @@ void led_enable(void)
 // RETURN:
 //    none
 // -----------------------------------------------------------------------------
-void led_disable(void)
+void leds_disable(void)
 {
   GPIOA->DOUT31_0 &= ~enable_controls[LED_BAR_ENABLE_IDX].bit_mask;
-} /* led_disable */
+} /* leds_disable */
 
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
