@@ -3,18 +3,19 @@
 >Date: Spring 2025
 ---
 ## Introduction
-Welcome to the CSC-202: Programming Embedded Microcontrollers in C and Assembly course at Monroe Community College. This repository contains programming files that serve as the starting workspace for Code Composer Studio-Theia, a powerful IDE used in the course. These files are designed to help you get started with embedded systems development using both C and Assembly programming languages.
+Welcome to CSC-202: Programming Embedded Microcontrollers in C and Assembly at Monroe Community College! This repository contains the necessary files to set up the workspace for Code Composer Studio - Theia (CCS-Theia), a powerful Integrated Development Environment (IDE) you'll use throughout this course. These files serve as the foundation for your development environment, allowing you to dive into embedded systems programming using both C and Assembly.
 
-By utilizing this workspace, you kick-start your learning of programming embedded microcontrollers with the support of a structured environment tailored to the course's needs.
+This workspace allows you to build, debug, and test embedded microcontroller projects quickly. It provides the tools, libraries, and setup to help you get started quickly and stay organized.
 
 ## Hardware
-The hardware used in these projects includes:
+This workspace is developed specifically for the following hardware:
 
-- MSPM0G3507 LaunchPad (LP-MSPM0G3507)
-- CSC202 Expansion Board
+- Texas Instrument's MSPM0G3507 LaunchPad (LP-MSPM0G3507)
+- MCC's CSC202 Expansion Board
 - LCD1602 Module
 - 4x4 Matrix keypad
 
+The LaunchPad and CSC202 Expansion Board are essential for the course's embedded systems development exercises. They provide a hardware platform for interacting with the microcontroller and facilitating input/output operations.
 
 ## Configuring CCS-Theia and GitHub
 ---
