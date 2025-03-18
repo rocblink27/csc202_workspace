@@ -50,10 +50,10 @@ Once you have created a repository on your local machine using CCS-Theia, you mu
 2. Connect your local repository to the remote repository on GitHub by running this command (replace `{your-git-hub-username}` and `{name-of-repo}` with your actual GitHub username and repository name):
    - `git remote add origin https://github.com/{your-git-hub-username}/{name-of-repo}.git`
 
-3. Push your local repository to GitHub (this also sets the upstream branch for future pushes):
+3. Push your local repository to GitHub:
    - `git push -u origin master`
 
-    The `-u` flag in the `git push` command stands for **"upstream"**. It tells Git to remember the remote repository (in this case, `origin`) and the branch (in this case, `master`) that you're pushing to. This establishes a tracking relationship between your local branch and the remote branch, which simplifies future Git commands.
+    The `-u` flag in the `git push` command stands for **"upstream"**. It tells Git to remember the remote repository (in this case, `origin`) and the branch (in this case, `master`) that you're pushing to. This establishes a tracking relationship between your local and remote branches, simplifying future Git commands.
 
 **NOTE:** Do not create files directly on GitHub before pushing your local repository. If you do, GitHub will create a branch called `main`. This can cause confusion and result in two branches when you push from your local machine.
 
