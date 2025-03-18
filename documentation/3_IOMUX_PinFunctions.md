@@ -14,14 +14,14 @@ In the following table provides a breakdown of the possible modes or functions f
 
 The image below shows a table for the **GPIOA** pins and the various modes they can be configured to. Each pin has multiple possible functions, including basic **digital input/output** or specialized functions like **UART**, **SPI**, and more.
 
-![GPIOA Pin Functions](GPIOA_IOMUX_PinFunctions.png)  
+![GPIOA Pin Functions](./images/GPIOA_IOMUX_PinFunctions.png)  
 *Figure 1: Table showing the various functions that can be assigned to GPIOA pins on the MSPM0G3507 microcontroller.*
 
 ### GPIOB Pin Functions
 
 Similarly, the **GPIOB** pins can also be configured to serve a variety of functions. The table below outlines the different modes or peripheral functions that can be assigned to each GPIOB pin.
 
-![GPIOB Pin Functions](./GPIOB_IOMUX_PinFunctions.png)  
+![GPIOB Pin Functions](./images/GPIOB_IOMUX_PinFunctions.png)  
 *Figure 2: Table showing the various functions that can be assigned to GPIOB pins on the MSPM0G3507 microcontroller.*
 
 ---
