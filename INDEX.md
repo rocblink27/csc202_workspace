@@ -1,4 +1,6 @@
-# CSC202 Workspace Documentation
+# CSC-202 Programming Microcontroller in C and Assembly
+CSC202 Starter Workspace for Code Composer Studio - Theia
+## CSC202 Workspace Documentation
 
 1. **[README](./documentation/1_README.md)**: General project information and setup guide.
 2. **[Git/GitHub Setup](./documentation/2_GIT_GITHUB.md)**: How to set up Git and GitHub for your project.
