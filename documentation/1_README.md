@@ -17,7 +17,32 @@ This workspace is developed specifically for the following hardware:
 
 The LaunchPad and CSC202 Expansion Board are essential for the course's embedded systems development exercises. They provide a hardware platform for interacting with the microcontroller and facilitating input/output operations.
 
----
+## Setting up Project for CSC202 Lab Assignments
+
+This workspace contains a default project called **"Default_project"**. This project contains essential support files and code written specifically for the CSC202 course and should **not** be edited directly. Instead, you should create a **copy** of this project to avoid making changes to the original files.
+
+### Steps to Duplicate the Project and Rename It
+
+1. **Duplicate the Default Project:**
+   - Right-click on the **"Default_project"** in your CCS-Theia workspace.
+   - Select **"Duplicate"** from the context menu.
+   - This will create a copy of the project, leaving the original untouched.
+
+2. **Rename the Project:**
+   - After duplicating the project, right-click on the new copy and select **"Rename"**.
+   - Rename the project to an appropriate name for your lab. For example, if you're working on **Lab 2**, rename the project to **"Lab2"**.
+   
+3. **Rename the main.c File:**
+   - In your newly duplicated project, find the **main.c** file.
+   - Right-click on **main.c** and select **"Rename"**.
+   - Rename the file to **lab2_main.c** (or a similar name corresponding to your project).
+   
+### Why Rename the Project and main.c?
+
+- **Avoid Confusion**: When working on multiple projects or labs, having **unique names** for each project and **main.c** file ensures that you don't accidentally edit the wrong file or project.
+- **Better Organization**: Renaming the file helps keep your workspace organized, especially as you move through different labs or assignments.
+<br> </br>
+
 ## Contact Information
 Bruce Link  
 Monroe Community College  
