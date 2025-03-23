@@ -87,6 +87,7 @@
         "IIDX",
         "INENA",
         "IOMUX",
+        "IRQN",
         "LACT",
         "LCRH",
         "LEDS",
