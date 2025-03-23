@@ -39,7 +39,7 @@
 //     and adapt the code for your specific application and hardware requirements.
 //
 // Copyright (c) 2024 by TBD
-//     You may use, edit, run, or distribute this file as long as the above
+//     You may use, edit, run or distribute this file as long as the above
 //     copyright notice remains
 // *****************************************************************************
 //******************************************************************************
