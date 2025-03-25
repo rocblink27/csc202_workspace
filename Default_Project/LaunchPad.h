@@ -299,4 +299,6 @@ void motor0_set_pwm_count(uint32_t count);
 void motor0_pwm_enable(void);
 void motor0_pwm_disable(void);
 
+void OPA0_init(void);
+
 #endif // __LAUNCHPAD_H__
