@@ -2030,7 +2030,8 @@ void dac_write_data(uint16_t data)
 //    input and output pins. The OPA is then powered up and enabled for use.
 //
 // INPUT PARAMETERS:
-//  none
+//  opa_gain - this 8-bit value where the only the lower 3-bits represent 
+//             that gain used for the Op-Amp.
 //
 // OUTPUT PARAMETERS:
 //  none
@@ -2053,10 +2054,11 @@ void OPA0_init(uint8_t opa_gain)
   OPA0->CFGBASE |= ((uint32_t) OA_CFGBASE_GBW_HIGHGAIN);
 
   // Shift gain to proper position and ensure gain is restricted to 3-bits
-  opa_gain = (opa_gain << OA_CFG_GAIN_OFS) & OA_CFG_GAIN_MASK;
+  OPA0->CFG |= (opa_gain << OA_CFG_GAIN_OFS) & OA_CFG_GAIN_MASK;
 
-  OPA0->CFG |= (opa_gain | OA_CFG_MSEL_NC | OA_CFG_NSEL_EXTPIN0 | 
-                OA_CFG_PSEL_EXTPIN0 | OA_CFG_OUTPIN_ENABLED | OA_CFG_CHOP_OFF);
+  // Configure OPA positive and negative channels
+  OPA0->CFG |= (OA_CFG_MSEL_NC | OA_CFG_NSEL_EXTPIN0 | OA_CFG_PSEL_EXTPIN0 |
+                OA_CFG_OUTPIN_ENABLED | OA_CFG_CHOP_OFF);
 
 } /* OPA0_init */
 
