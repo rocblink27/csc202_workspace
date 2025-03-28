@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.6
+//         VERSION:  0.7
 //
 //       FILE NAME:  LaunchPad.h
 //
@@ -299,6 +299,9 @@ void motor0_set_pwm_count(uint32_t count);
 void motor0_pwm_enable(void);
 void motor0_pwm_disable(void);
 
-void OPA0_init(void);
+void OPA0_init(uint8_t opa_gain);
+void OPA0_enable(void);
+void OPA0_disable(void);
+
 
 #endif // __LAUNCHPAD_H__
