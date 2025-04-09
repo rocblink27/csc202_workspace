@@ -3,7 +3,7 @@
 // *****************************************************************************
 //    DESIGNER NAME:  Bruce Link
 //
-//          VERSION:  0.6
+//          VERSION:  0.7
 //
 //        FILE NAME:  LaunchPad.c
 //
@@ -19,6 +19,7 @@
 //       - I2C communication management
 //       - PWM Motor Management
 //       - DAC Management
+//       - OPA Management
 //
 //     This code is adapted from various Texas Instruments' LaunchPad
 //     project template for the LP-MSPM0G3507, using C language and no RTOS.
@@ -2012,6 +2013,15 @@ void dac_write_data(uint16_t data)
 } /* dac_write_data */
 
 
+
+
+//***************************************************************************
+//***************************************************************************
+//******                   OPA Management functions                    ******
+//***************************************************************************
+//***************************************************************************
+
+
 //-----------------------------------------------------------------------------
 // DESCRIPTION:
 //    This function initializes the operational amplifier (OPA0) on the 
@@ -2020,7 +2030,8 @@ void dac_write_data(uint16_t data)
 //    input and output pins. The OPA is then powered up and enabled for use.
 //
 // INPUT PARAMETERS:
-//  none
+//  opa_gain - this 8-bit value where the only the lower 3-bits represent 
+//             that gain used for the Op-Amp.
 //
 // OUTPUT PARAMETERS:
 //  none
@@ -2028,7 +2039,7 @@ void dac_write_data(uint16_t data)
 // RETURN:
 //  none
 // -----------------------------------------------------------------------------
-void OPA0_init(void)
+void OPA0_init(uint8_t opa_gain)
 {
   OPA0->GPRCM.RSTCTL = (OA_RSTCTL_KEY_UNLOCK_W | OA_RSTCTL_RESETSTKYCLR_CLR |
                         OA_RSTCTL_RESETASSERT_ASSERT);
@@ -2042,11 +2053,53 @@ void OPA0_init(void)
   
   OPA0->CFGBASE |= ((uint32_t) OA_CFGBASE_GBW_HIGHGAIN);
 
-  // OPA0->CFG |= (OA_CFG_GAIN_MINIMUM | OA_CFG_MSEL_NC | OA_CFG_NSEL_EXTPIN0 | 
-  OPA0->CFG |= ((0 << OA_CFG_GAIN_OFS) | OA_CFG_MSEL_NC | OA_CFG_NSEL_EXTPIN0 | 
-                OA_CFG_PSEL_EXTPIN0 | OA_CFG_OUTPIN_ENABLED | OA_CFG_CHOP_OFF);
+  // Shift gain to proper position and ensure gain is restricted to 3-bits
+  OPA0->CFG |= (opa_gain << OA_CFG_GAIN_OFS) & OA_CFG_GAIN_MASK;
 
+  // Configure OPA positive and negative channels
+  OPA0->CFG |= (OA_CFG_MSEL_NC | OA_CFG_NSEL_EXTPIN0 | OA_CFG_PSEL_EXTPIN0 |
+                OA_CFG_OUTPIN_ENABLED | OA_CFG_CHOP_OFF);
+
+} /* OPA0_init */
+
+//-----------------------------------------------------------------------------
+// DESCRIPTION:
+//    This function enables the operational amplifier (OPA0) on the 
+//    MSPM0G3507 microcontroller. The configuration of the OPA is not affected.
+//
+// INPUT PARAMETERS:
+//  none
+//
+// OUTPUT PARAMETERS:
+//  none
+//
+// RETURN:
+//  none
+// -----------------------------------------------------------------------------
+void OPA0_enable(void)
+{
   // Enable the OPA
   OPA0->CTL |= OA_CTL_ENABLE_ON;
 
-} /* OPA0_init */
+} /* OPA0_enable */
+
+//-----------------------------------------------------------------------------
+// DESCRIPTION:
+//    This function disables the operational amplifier (OPA0) on the 
+//    MSPM0G3507 microcontroller. The configuration of the OPA is not affected.
+//
+// INPUT PARAMETERS:
+//  none
+//
+// OUTPUT PARAMETERS:
+//  none
+//
+// RETURN:
+//  none
+// -----------------------------------------------------------------------------
+void OPA0_disable(void)
+{
+  // Disable the OPA
+  OPA0->CTL &= ~OA_CTL_ENABLE_MASK;
+
+} /* OPA0_disable */

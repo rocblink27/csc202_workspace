@@ -62,6 +62,7 @@
         "FIFOTRIGSEL",
         "FILTEREN",
         "FRANGE",
+        "FSCL",
         "GENCLKCFG",
         "GENCLKEN",
         "GPIOA",
