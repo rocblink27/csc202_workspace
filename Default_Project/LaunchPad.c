@@ -1783,7 +1783,7 @@ void motor0_pwm_init(uint32_t load_value, uint32_t compare_value)
   // 200,000 Hz = 40,000,000 Hz / (8 * (24 + 1))
   TIMA0->COMMONREGS.CPS = GPTIMER_CPS_PCNT_MASK & 0x18;
 
-  // Set action for compare
+  // Set C3 action for compare 
   // On Zero, set output HIGH; On Compares up, set output LOW
   TIMA0->COUNTERREGS.CCACT_23[1] = (GPTIMER_CCACT_23_FENACT_DISABLED | 
         GPTIMER_CCACT_23_CC2UACT_DISABLED | GPTIMER_CCACT_23_CC2DACT_DISABLED |
@@ -1812,7 +1812,7 @@ void motor0_pwm_init(uint32_t load_value, uint32_t compare_value)
   // No interrupt is required
   TIMA0->CPU_INT.IMASK = GPTIMER_CPU_INT_IMASK_L_CLR;
 
-  // set C0 as output
+  // set TIMA0_C3 as output
   TIMA0->COMMONREGS.CCPD =(GPTIMER_CCPD_C0CCP3_OUTPUT | 
          GPTIMER_CCPD_C0CCP2_INPUT | GPTIMER_CCPD_C0CCP1_INPUT | 
          GPTIMER_CCPD_C0CCP0_INPUT);;
