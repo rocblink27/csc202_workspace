@@ -1,52 +1,53 @@
-# CSC202_Workspace
->Version 1.0  
->Date: Spring 2025
+# CSC202 Workspace
+> Version 1.0  
+> Date: Spring 2025
 ---
 ## Introduction
-Welcome to CSC-202: Programming Embedded Microcontrollers in C and Assembly at Monroe Community College! This repository contains the necessary files to set up the workspace for Code Composer Studio - Theia (CCS-Theia), a powerful Integrated Development Environment (IDE) you'll use throughout this course. These files serve as the foundation for your development environment, allowing you to dive into embedded systems programming using both C and Assembly.
+Welcome to **CSC-202: Programming Embedded Microcontrollers in C and Assembly** at Monroe Community College! This repository contains the essential files to set up your workspace for **Code Composer Studio - Theia (CCS-Theia)**, the Integrated Development Environment (IDE) you'll be using throughout the course.  
 
-This workspace allows you to build, debug, and test embedded microcontroller projects quickly. It provides the tools, libraries, and setup to help you get started quickly and stay organized.
+These files form the foundation of your embedded systems programming environment, enabling you to develop, build, debug, and test projects in both C and Assembly quickly and efficiently.
 
 ## Hardware
-This workspace is developed specifically for the following hardware:
+This workspace is tailored for the following hardware components:
 
-- Texas Instrument's MSPM0G3507 LaunchPad (LP-MSPM0G3507)
-- MCC's CSC202 Expansion Board
-- LCD1602 Module
-- 4x4 Matrix keypad
+- **Texas Instruments MSPM0G3507 LaunchPad (LP-MSPM0G3507)**
+- **MCC CSC202 Expansion Board**
+- **LCD1602 Module**
+- **4x4 Matrix Keypad**
 
-The LaunchPad and CSC202 Expansion Board are essential for the course's embedded systems development exercises. They provide a hardware platform for interacting with the microcontroller and facilitating input/output operations.
+The LaunchPad and Expansion Board serve as the core hardware platforms for course exercises, providing microcontroller interfacing capabilities and I/O operations for your projects.
 
-## Setting up Project for CSC202 Lab Assignments
+## Setting Up Projects for CSC202 Lab Assignments
+Within this workspace, you will find a default project named **"Default_project"**. This project includes all the critical support files and code tailored for CSC202 and **should not be modified directly**.  
 
-This workspace contains a default project called **"Default_project"**. This project contains essential support files and code written specifically for the CSC202 course and should **not** be edited directly. Instead, you should create a **copy** of this project to avoid making changes to the original files.
+To maintain the integrity of the default files and to organize your work effectively, **always duplicate this project and rename the copy** before starting any lab or assignment.
 
-### Steps to Duplicate the Project and Rename It
+### How to Duplicate and Rename Your Project
 
 1. **Duplicate the Default Project:**
-   - Right-click on the **"Default_project"** in your CCS-Theia workspace.
-   - Select **"Duplicate"** from the context menu.
-   - This will create a copy of the project, leaving the original untouched.
+   - Right-click on **"Default_project"** within your CCS-Theia workspace.
+   - Select **"Duplicate"** to create a copy of the project.
 
 2. **Rename the Project:**
-   - After duplicating the project, right-click on the new copy and select **"Rename"**.
-   - Rename the project to an appropriate name for your lab. For example, if you're working on **Lab 2**, rename the project to **"Lab2"**.
-   
-3. **Rename the main.c File:**
-   - In your newly duplicated project, find the **main.c** file.
-   - Right-click on **main.c** and select **"Rename"**.
-   - Rename the file to **lab2_main.c** (or a similar name corresponding to your project).
-   
-### Why Rename the Project and main.c?
+   - Right-click the newly duplicated project.
+   - Select **"Rename"**.
+   - Assign a unique name corresponding to your lab or assignment (e.g., **Lab2**).
 
-- **Avoid Confusion**: When working on multiple projects or labs, having **unique names** for each project and **main.c** file ensures that you don't accidentally edit the wrong file or project.
-- **Better Organization**: Renaming the file helps keep your workspace organized, especially as you move through different labs or assignments.
-<br> </br>
+3. **Rename the main.c File:**
+   - In the duplicated project, locate **main.c**.
+   - Right-click and choose **"Rename"**.
+   - Rename it to something descriptive such as **lab2_main.c** to match the project name.
+
+### Why Renaming is Important
+
+- **Prevents Confusion:** Unique project and file names help avoid accidental edits to the wrong files.
+- **Improves Organization:** Keeps your workspace tidy as you progress through multiple labs and assignments.
+  
+<br>
 
 ## Contact Information
+
 Bruce Link  
 Monroe Community College  
 Information & Computer Technologies Department  
-blink@monroecc.edu
-
-
+[blink@monroecc.edu](mailto:blink@monroecc.edu)

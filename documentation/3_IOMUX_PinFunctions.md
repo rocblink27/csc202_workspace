@@ -28,7 +28,7 @@ Similarly, the **GPIOB** pins can also be configured to serve a variety of funct
 
 ### Note:
 The table includes two columns:
-1. **PINCM IDX**: Represents the index intot he array.
+1. **PINCM IDX**: Represents the index into the array.
 2. **SDK ENUM**: Corresponds to the **SDK enum** number.
 
 The **IOMUX** register array starts at index 0, as is typical for most hardware register mappings. However, the **SDK ENUM** for the **MSPM0G3507** defines a **typedef enum** called `IOMUX_PINCM`. In this enum, the pin names are indexed starting from 1, rather than 0. 
@@ -37,3 +37,12 @@ For example:
 - **IOMUX_PINCM1** in the SDK is defined as `(0)` in the IOMUX register array, indicating a shift in the index.
 
 When using the SDK **enum**, you must account for the fact that the indexing starts at 1, which differs from the register array that starts at 0.
+
+<br>
+
+## 📞 Contact Information
+
+**Bruce Link**  
+Monroe Community College  
+Information & Computer Technologies Department  
+📧 [blink@monroecc.edu](mailto:blink@monroecc.edu)

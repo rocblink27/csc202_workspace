@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.2
+//         VERSION:  0.3
 //
 //       FILE NAME:  clock.h
 //
@@ -51,6 +51,11 @@
 #include <stdint.h>
 
 
+//-----------------------------------------------------------------------------
+// Define symbolic constants used by the program
+//-----------------------------------------------------------------------------
+
+
 // ----------------------------------------------------------------------------
 // Prototype for support functions
 // ----------------------------------------------------------------------------
@@ -59,7 +64,8 @@ void clock_init_40mhz(void);
 void clock_init(uint32_t freq);
 uint32_t get_bus_clock_freq(void);
 void clock_delay(uint32_t cycles) __attribute__((noinline));
-void msec_delay(uint32_t ms);
+void msec_delay(uint32_t ms_delay_count);
+void usec_delay(uint32_t us_delay_count);
 
 void sys_tick_init(uint32_t period);
 void sys_tick_disable(void);

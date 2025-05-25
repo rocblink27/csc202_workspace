@@ -5,7 +5,7 @@
 ## Introduction
 To fully integrate CCS-Theia with Git and GitHub, you will push your local repository from your machine to GitHub. Below are the instructions for pushing and pulling files to/from GitHub.
 
-### Configure Git Global Configurations
+## Configure Git Global Configurations
 
 Before you can use Git, you must define your global user information. This is necessary because Git tracks your identity for every commit you make. Setting up this configuration ensures that each commit has the correct author information attached to it.
 
@@ -23,7 +23,7 @@ Before you can use Git, you must define your global user information. This is ne
 Using the `--global` flag, Git applies this configuration to every repository on your system. If you want to override the global configuration for a specific repository, you can set local configurations (specific to that repo) by omitting the `--global` flag and running the same commands within the repository folder.
 
 
-### Pushing from CCS-Theia to GitHub
+## Pushing from CCS-Theia to GitHub
 
 Once you have created a repository on your local machine using CCS-Theia, you must connect it to a remote repository on GitHub. You only need to set up this connection once, and CCS-Theia will remember it for future use.
 
@@ -41,7 +41,7 @@ Once you have created a repository on your local machine using CCS-Theia, you mu
 
 **NOTE:** Do not create files directly on GitHub before pushing your local repository. If you do, GitHub will create a branch called `main`. This can cause confusion and result in two branches when you push from your local machine.
 
-### Pulling from GitHub to a New CCS-Theia Setup
+## Pulling from GitHub to a New CCS-Theia Setup
 
 If you have an existing repository on GitHub and want to work on it from a different machine (e.g., a new PC or a work/school computer), you'll need to pull the repository from GitHub to your new machine. Follow these steps to set up the repository on your new computer and access your files:
 
@@ -60,11 +60,11 @@ If you have an existing repository on GitHub and want to work on it from a diffe
 
 This will download the latest repository version from GitHub to your local machine, so you can start working on it in CCS-Theia.
 
----
+
 ## Contact Information
 Bruce Link  
 Monroe Community College  
 Information & Computer Technologies Department  
-blink@monroecc.edu
+[blink@monroecc.edu](mailto:blink@monroecc.edu)
 
 
