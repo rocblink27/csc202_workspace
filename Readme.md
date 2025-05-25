@@ -12,6 +12,7 @@ This is the CSC202 Starter Workspace for Code Composer Studio - Theia
 1. **[README](./documentation/1_README.md)**: General project information and setup guide.
 2. **[Git/GitHub Setup](./documentation/2_GIT_GITHUB.md)**: How to set up Git and GitHub for your project.
 3. **[IOMUX Pin Functions](./documentation/3_IOMUX_PinFunctions.md)**: Configuration and details of the IOMUX pins on the MSPM0G3507.
+4. **[BOOSTXL-EDUMKII](./documentation/4_SDK%20BOOSTXL-EDUMKII.md)**: Configuration and details of the BOOSTXL-EDUMKII.
 
 
 [def]: ./documentation/images/MCC_logo_left_color_rgb.png
