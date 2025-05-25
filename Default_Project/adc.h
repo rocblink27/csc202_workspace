@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.3
+//         VERSION:  1.0
 //
 //       FILE NAME:  adc.h
 //
@@ -18,8 +18,8 @@
 //    The header comments for each function describe its purpose, input
 //    parameters, output parameters, and return values.
 //
-//    This code is based on Texas Instruments' LaunchPad project template for
-//    the LP-MSPM0G3507, tailored for use with no RTOS and written in C.
+//    This code is adapted from various Texas Instruments' LaunchPad
+//    project template for the LP-MSPM0G3507, using C language and no RTOS.
 //
 // NOTES:
 //    - Ensure that `ADC0_init` is called before `ADC0_in` to configure the ADC 

@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.3
+//         VERSION:  1.0
 //
 //       FILE NAME:  clock.c
 //
@@ -55,8 +55,8 @@
 //-----------------------------------------------------------------------------
 // Define symbolic constants used by the program
 //-----------------------------------------------------------------------------
-#define MSEC_PER_SECOND                                                  (1000)
-#define USEC_PER_SECOND                                               (1000000)
+#define MSEC_PER_SECOND                                                   (1000)
+#define USEC_PER_SECOND                                                (1000000)
 
 
 //-----------------------------------------------------------------------------
@@ -64,7 +64,7 @@
 //-----------------------------------------------------------------------------
 uint32_t volatile g_bus_clock_freq = 32000000; 
 
-//-----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // DESCRIPTION:
 //   This function returns current configured bus clock frequency for the 
 //   Launchpad development board
@@ -83,7 +83,8 @@ uint32_t get_bus_clock_freq(void)
   return g_bus_clock_freq;
 } /* get_bus_clock_freq */
 
-//-----------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
 // DESCRIPTION:
 //    This function initializes the system clock on for the LP-MSPM03507 
 //    LaunchPad to achieve a target frequency of 40 MHz by configuring 
@@ -213,6 +214,7 @@ void clock_init_40mhz(void)
   g_bus_clock_freq = 40000000;
 
 } /* clock_init_40mhz */
+
 
 
 //-----------------------------------------------------------------------------
@@ -384,8 +386,10 @@ void sys_tick_init(uint32_t period)
   // Ensure SysTick is disabled
   sys_tick_disable();
 
-  // Clear and set priority of SysTick interrupt 
-  SCB->SHP[1] &= ~(0xC0000000) | (1 << 30);
+  // Clear and set priority of SysTick interrupt to 2
+  // SysTick is PRI_15 field (bits 31:24) but on only 2 MSbit of priority 
+  // field are implemented
+  SCB->SHP[1] = (SCB->SHP[1] & ~(0xC0000000)) | (1 << 30);
 
   // Reconfigure the SysTick
   SysTick->LOAD = period - 1;

@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.7
+//         VERSION:  1.0
 //
 //       FILE NAME:  LaunchPad.h
 //
@@ -24,8 +24,9 @@
 //
 //-----------------------------------------------------------------------------
 // DISCLAIMER
-//    This code was developed for educational purposes as part of the CSC202
-//    course and is provided "as is" without warranties of any kind, whether
+// DISCLAIMER
+//    This code was developed for educational purposes as part of the CSC202 
+//    course and is provided "as is" without warranties of any kind, whether 
 //    express, implied, or statutory.
 //
 //    The author and organization do not warrant the accuracy, completeness, or
@@ -35,9 +36,10 @@
 //    advised of the possibility of such damages.
 //
 //    Use of this code is at your own risk, and it is recommended to validate
-//    and adapt the code for your specific application and hardware requirements.
+//    and adapt the code for your specific application and hardware 
+//    requirements.
 //
-// Copyright (c) 2024 by TBD
+// Copyright (c) 2024 by Bruce Link
 //    You may use, edit, run or distribute this file as long as the above
 //    copyright notice remains
 // *****************************************************************************
@@ -247,8 +249,6 @@
 
 
 
-
-
 // --------------------------------------------------------------------------
 // Prototype for Launchpad support functions
 // --------------------------------------------------------------------------
@@ -277,7 +277,6 @@ bool is_pb_down(uint8_t pb_idx);
 bool is_pb_up(uint8_t pb_idx);
 void dipsw_filter_enable(void);
 
-
 void lpsw_init(void);
 bool is_lpsw_down(uint8_t pb_idx);
 bool is_lpsw_up(uint8_t pb_idx);
@@ -286,7 +285,6 @@ void keypad_init(void);
 uint8_t keypad_scan(void);
 uint8_t getkey_pressed(void);
 void wait_no_key_pressed(void);
-
 
 void I2C_init(void);
 uint8_t I2C_recv1(uint8_t slave);

@@ -3,7 +3,7 @@
 //*****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.3
+//         VERSION:  1.0
 //
 //       FILE NAME:  uart.h
 //
@@ -14,6 +14,17 @@
 //    the MSPM0G3507 Launchpad development board. UART0 is configured  
 //    for a baud rate of 115200, no parity, 8 data bits, and 1 stop bit 
 //    (115200N81).
+//
+//    Pin Configuration:
+//        - UART0 Tx: PA.10 (connected to XDS Rx)
+//         - UART0 Rx: PA.11 (connected to XDS Tx)
+//
+//    Required Jumper Configuration:
+//      - J25: Connects PA10 to XDS_UART
+//      - J26: Connects PA11 to XDS_UART
+//
+//    Note: The code for this module is adapted from TI's sample project 
+//    'uart_rw_multibyte_fifo_poll_LP_MSPM0G3507_nortos_ticlang'.
 //
 //-----------------------------------------------------------------------------
 // DISCLAIMER
@@ -28,9 +39,10 @@
 //    advised of the possibility of such damages.
 //
 //    Use of this code is at your own risk, and it is recommended to validate
-//    and adapt the code to your specific application and hardware requirements.
+//    and adapt the code for your specific application and hardware 
+//    requirements.
 //
-// Copyright (c) 2024 by TBD
+// Copyright (c) 2024 by Bruce Link
 //    You may use, edit, run or distribute this file as long as the above
 //    copyright notice remains
 // *****************************************************************************

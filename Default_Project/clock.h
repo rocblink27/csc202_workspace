@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.3
+//         VERSION:  1.0
 //
 //       FILE NAME:  clock.h
 //
@@ -62,7 +62,9 @@
 void clock_init_80mhz(int enablePA14);
 void clock_init_40mhz(void);
 void clock_init(uint32_t freq);
+
 uint32_t get_bus_clock_freq(void);
+
 void clock_delay(uint32_t cycles) __attribute__((noinline));
 void msec_delay(uint32_t ms_delay_count);
 void usec_delay(uint32_t us_delay_count);

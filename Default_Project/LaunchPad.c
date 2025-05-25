@@ -3,7 +3,7 @@
 // *****************************************************************************
 //    DESIGNER NAME:  Bruce Link
 //
-//          VERSION:  0.7
+//         VERSION:  1.0
 //
 //        FILE NAME:  LaunchPad.c
 //
@@ -26,22 +26,23 @@
 //
 //-----------------------------------------------------------------------------
 // DISCLAIMER
-//     This code was developed for educational purposes as part of the CSC202
-//     course and is provided "as is" without warranties of any kind, whether
-//     express, implied, or statutory.
+//    This code was developed for educational purposes as part of the CSC202 
+//    course and is provided "as is" without warranties of any kind, whether 
+//    express, implied, or statutory.
 //
-//     The author and organization do not warrant the accuracy, completeness, or
-//     reliability of the code. The author and organization shall not be liable
-//     for any direct, indirect, incidental, special, exemplary, or consequential
-//     damages arising out of the use of or inability to use the code, even if
-//     advised of the possibility of such damages.
+//    The author and organization do not warrant the accuracy, completeness, or
+//    reliability of the code. The author and organization shall not be liable
+//    for any direct, indirect, incidental, special, exemplary, or consequential
+//    damages arising out of the use of or inability to use the code, even if
+//    advised of the possibility of such damages.
 //
-//     Use of this code is at your own risk, and it is recommended to validate
-//     and adapt the code for your specific application and hardware requirements.
+//    Use of this code is at your own risk, and it is recommended to validate
+//    and adapt the code for your specific application and hardware 
+//    requirements.
 //
-// Copyright (c) 2024 by TBD
-//     You may use, edit, run or distribute this file as long as the above
-//     copyright notice remains
+// Copyright (c) 2024 by Bruce Link
+//    You may use, edit, run or distribute this file as long as the above
+//    copyright notice remains
 // *****************************************************************************
 //******************************************************************************
 

@@ -3,7 +3,7 @@
 // *****************************************************************************
 //   DESIGNER NAME:  Bruce Link
 //
-//         VERSION:  0.3
+//         VERSION:  1.0
 //
 //       FILE NAME:  LCD1602.c
 //
@@ -33,7 +33,7 @@
 //    and adapt the code for your specific application and hardware 
 //    requirements.
 //
-// Copyright (c) 2024 by TBD
+// Copyright (c) 2024 by Bruce Link
 //    You may use, edit, run or distribute this file as long as the above
 //    copyright notice remains
 // *****************************************************************************
